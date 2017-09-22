@@ -109,7 +109,7 @@ Move the `app-v0.1.0.yaml` pod manifest to the kubelet manifest directory:
 sudo mv app-v0.1.0.yaml /etc/kubernetes/manifests/app.yaml
 ```
 
-> Notice the `app-v0.1.0.yaml` is being renamed to `app.yaml`. This prevents our application from being deployed twice. Each pod must have a unique `metadata.name`.
+> Notice the `app-v0.1.0.yaml` pod manifest is being renamed to `app.yaml`. This prevents our application from being deployed twice. Each pod must have a unique `metadata.name`.
 
 List the installed container images:
 
