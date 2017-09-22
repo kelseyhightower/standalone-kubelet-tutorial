@@ -207,11 +207,11 @@ List the installed container images:
 docker images
 ```
 ```
-REPOSITORY                             TAG                 IMAGE ID            CREATED              SIZE
-gcr.io/hightowerlabs/app               0.2.0               3028d4a68eb1        About a minute ago   6.325 MB
-gcr.io/hightowerlabs/app               0.1.0               f4b0fa229fea        4 minutes ago        6.325 MB
-gcr.io/hightowerlabs/configurator      0.1.0               164e54187008        3 hours ago          2.346 MB
-gcr.io/google_containers/pause-amd64   3.0                 99e59f495ffa        16 months ago        746.9 kB
+REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
+gcr.io/hightowerlabs/app               0.1.0               c7d7002a0776        30 minutes ago      6.325 MB
+gcr.io/hightowerlabs/app               0.2.0               3028d4a68eb1        31 minutes ago      6.325 MB
+gcr.io/hightowerlabs/configurator      0.1.0               164e54187008        4 hours ago         2.346 MB
+gcr.io/google_containers/pause-amd64   3.0                 99e59f495ffa        16 months ago       746.9 kB
 ```
 
 > Notice the `gcr.io/hightowerlabs/app:0.2.0` image has been added to the local repository.
@@ -225,7 +225,7 @@ curl http://127.0.0.1
 ```
 version: 0.2.0
 hostname: standalone-kubelet.c.hightowerlabs.internal
-key: 1506063949
+key: 1506065786
 ```
 
 ## Cleanup
