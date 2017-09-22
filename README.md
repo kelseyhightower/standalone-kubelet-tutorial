@@ -131,7 +131,9 @@ docker ps
 
 > You should see three containers running which represent the `app` pod. Docker does not understand pods so the containers are listed as individual containers following the Kubernetes naming convention. 
 
-At this point the `app` pod is up and running on port 80 in the host namespace.
+### Verification
+
+At this point the `app` pod is up and running on port 80 in the host namespace. 
 
 ```
 curl http://127.0.0.1
@@ -168,7 +170,7 @@ EXTERNAL_IP=$(gcloud compute instances describe standalone-kubelet \
   --format 'value(networkInterfaces[0].accessConfigs[0].natIP)')
 ```
 
-Make and HTTP request to using the external IP:
+Make a HTTP request to the `app` pod using the `standalone-kubelet` external IP address:
 
 ```
 curl http://${EXTERNAL_IP}
@@ -216,7 +218,9 @@ gcr.io/google_containers/pause-amd64   3.0                 99e59f495ffa        1
 
 > Notice the `gcr.io/hightowerlabs/app:0.2.0` image has been added to the local repository.
 
-At this point `app` version `0.2.0` is up and running.
+### Verification
+
+At this point `app` version `0.2.0` is up and running. Make a HTTP request to the `app` using the localhost address:
 
 ```
 curl http://127.0.0.1
