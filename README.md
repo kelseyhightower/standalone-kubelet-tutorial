@@ -17,7 +17,7 @@ gcloud compute instances create standalone-kubelet \
   --tags standalone-kubelet
 ```
 
-All HTTP traffic to the `standalone-kubelet` instance:
+Allow HTTP traffic to the `standalone-kubelet` instance:
 
 ```
 gcloud compute firewall-rules create allow-standalone-kubelet \
@@ -25,7 +25,7 @@ gcloud compute firewall-rules create allow-standalone-kubelet \
   --target-tags standalone-kubelet
 ```
 
-## Install a Standalone Kubelet
+## Install the Standalone Kubelet
 
 SSH into the `standalone-kubelet` compute instance:
 
@@ -68,7 +68,7 @@ sudo systemctl status kubelet
 
 ## Static Pods
 
-In this section you will run an example application that responds to HTTP request with its running config and version.
+In this section you will run an example application that responds to HTTP request with its running config and version. This section will leverage the [app pod](https://github.com/kelseyhightower/standalone-kubelet-tutorial/blob/master/pods/app-v0.1.0.yaml) which leverages a configuration side car that updates the `app` configuration file every 30 seconds.
 
 Verify no container are running:
 
