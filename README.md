@@ -118,8 +118,8 @@ sudo docker images
 ```
 ```
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-gcr.io/hightowerlabs/app               0.1.0               8444c1627aa1        9 minutes ago       6.325 MB
-gcr.io/hightowerlabs/configurator      0.1.0               164e54187008        About an hour ago   2.346 MB
+gcr.io/hightowerlabs/app               0.1.0               c7d7002a0776        23 minutes ago      6.325 MB
+gcr.io/hightowerlabs/configurator      0.1.0               164e54187008        4 hours ago         2.346 MB
 gcr.io/google_containers/pause-amd64   3.0                 99e59f495ffa        16 months ago       746.9 kB
 ```
 
