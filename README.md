@@ -1,6 +1,6 @@
 # Standalone Kubelet Tutorial
 
-This tutorial will guide you through running the Kubernetes Kubelet in standalone mode.
+This tutorial will guide you through running the Kubernetes Kubelet in standalone mode. You will also deploy an application using a static pod, test it, then upgrade the application.
 
 ## Compute Instance
 
