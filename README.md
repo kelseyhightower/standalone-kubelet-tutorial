@@ -60,7 +60,9 @@ sudo systemctl enable kubelet
 sudo systemctl start kubelet
 ```
 
-Verify the `kubelet` is running:
+### Verification
+
+It will take a few minutes for `kubelet` container to download and initialize. Verify the `kubelet` is running:
 
 ```
 sudo systemctl status kubelet
@@ -68,7 +70,7 @@ sudo systemctl status kubelet
 
 ## Static Pods
 
-In this section you will run an example application that responds to HTTP request with its running config and version. This section will leverage the [app pod](https://github.com/kelseyhightower/standalone-kubelet-tutorial/blob/master/pods/app-v0.1.0.yaml) which leverages a configuration sidecar that updates the `app` configuration file every 30 seconds.
+In this section you will deploy an application that responds to HTTP requests with its running config and version. The application configuration will be initialized before the HTTP starts by using an [init container](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/). Once the pod has started the application configuration will be updated every 30 seconds by a configuration sidecar.
 
 Verify no container are running:
 
