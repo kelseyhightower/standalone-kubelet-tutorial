@@ -2,6 +2,12 @@
 
 This tutorial will guide you through running the Kubernetes [Kubelet](https://kubernetes.io/docs/admin/kubelet/) in standalone mode on [Container Linux](https://coreos.com/why). You will also deploy an application using a [static pod](https://kubernetes.io/docs/tasks/administer-cluster/static-pod/), test it, then upgrade the application.
 
+## Rationale
+
+In some cases you just want to run one or more compute instances without the need for the entire Kubernetes feature set. There are many options for managing containers on a single node including [docker compose](https://docs.docker.com/compose/), or some configuration management tool like [ansible](https://www.ansible.com/) or [chef](https://www.chef.io/chef/), however the Kubernetes Kubelet running in standalone mode may be the better option. In standalone mode the Kubelet allows you to manage containers using [pod manifests](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/), which brings the benefits of running tightly coupled application as a single unit while leveraging a subset of advanced features including init containers, CNI networking, and build-in health checks.    
+
+Running the Kubelet in standalone mode provides a nice on-ramp to a full Kubernetes cluster; if the time comes most of your pod manifests can be reused.  
+
 ## Compute Instance
 
 Create the `standalone-kubelet` compute instance:
