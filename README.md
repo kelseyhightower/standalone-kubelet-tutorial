@@ -129,7 +129,7 @@ curl http://127.0.0.1
 
 ### Testing Remote Access
 
-The app pod is listening on `0.0.0.0:80` in the host network and is accessible via the external IP of the `standalone-kubelet` compute instance.
+The `app` pod is listening on `0.0.0.0:80` in the host network and is accessible via the external IP of the `standalone-kubelet` compute instance.
 
 Get the external IP of the `standalone-kubelet` instance:
 
@@ -163,7 +163,7 @@ Move the `app-v0.2.0.yaml` pod manifest to the kubelet manifest directory:
 sudo mv app-v0.2.0.yaml /etc/kubernetes/manifests/app.yaml
 ```
 
-> Notice the `app-v0.2.0.yaml` is being renamed to `app.yaml`. This overwrites the current pod manifest and will force the kubelet upgrade the app pod.
+> Notice the `app-v0.2.0.yaml` is being renamed to `app.yaml`. This overwrites the current pod manifest and will force the kubelet upgrade the `app` pod.
 
 List the installed container images:
 
@@ -180,7 +180,7 @@ gcr.io/google_containers/pause-amd64   3.0                 99e59f495ffa        1
 
 >> Notice the `gcr.io/hightowerlabs/app:0.2.0` images has been added to the local repository.
 
-At this point app version `0.2.0` is up and running.
+At this point `app` version `0.2.0` is up and running.
 
 ```
 curl -i http://127.0.0.1
