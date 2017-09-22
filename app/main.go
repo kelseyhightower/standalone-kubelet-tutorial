@@ -34,7 +34,7 @@ func main() {
 			return
 		}
 
-		fmt.Fprintf(w, "version: %s\nhostname: %s\nkey: %s\n", version, config.Hostname, config.Key)
+		fmt.Fprintf(w, "version: %s\nhostname: %s\nkey: %d\n", version, config.Hostname, config.Key)
 	})
 
 	log.Println("Starting the HTTP service...")
