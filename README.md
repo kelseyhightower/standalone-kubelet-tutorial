@@ -173,6 +173,12 @@ Make and HTTP request to using the external IP:
 curl http://${EXTERNAL_IP}
 ```
 
+```
+version: 0.1.0
+hostname: standalone-kubelet.c.hightowerlabs.internal
+key: 1506064129
+```
+
 ## Updating Static Pods
 
 ```
