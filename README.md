@@ -154,5 +154,17 @@ curl http://${KUBELET_EXTERNAL_IP}
 gcloud compute ssh kubelet
 ```
 
+Download the `app-v0.2.0.yaml` pod manifest:
+
 ```
+wget -q --show-progress --https-only --timestamping \
+  https://raw.githubusercontent.com/kelseyhightower/standalone-kubelet-tutorial/master/pods/app-v0.2.0.yaml
 ```
+
+Move the `app-v0.2.0.yaml` pod manifest to the kubelet manifest directory:
+
+```
+sudo mv app-v0.2.0.yaml /etc/kubernetes/manifests/app.yaml
+```
+
+> Notice the `app-v0.2.0.yaml` is being renamed to `app.yaml`. This overwrites the current pod manifest and will force the kubelet upgrade the app pod.
