@@ -133,7 +133,7 @@ docker ps
 
 ### Verification
 
-At this point the `app` pod is up and running on port 80 in the host namespace. 
+At this point the `app` pod is up and running on port 80 in the host namespace. Make a HTTP request to the `app` pod using the localhost address:
 
 ```
 curl http://127.0.0.1
@@ -220,7 +220,7 @@ gcr.io/google_containers/pause-amd64   3.0                 99e59f495ffa        1
 
 ### Verification
 
-At this point `app` version `0.2.0` is up and running. Make a HTTP request to the `app` using the localhost address:
+At this point `app` version `0.2.0` is up and running. Make a HTTP request to the `app` pod using the localhost address:
 
 ```
 curl http://127.0.0.1
