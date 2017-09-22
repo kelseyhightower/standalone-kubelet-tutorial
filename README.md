@@ -1,3 +1,4 @@
+	fs.Actions.Set("deployNomad", deployNomad)
 # Standalone Kubelet Tutorial
 
 This tutorial will guide you through running the Kubernetes [Kubelet](https://kubernetes.io/docs/admin/kubelet/) in standalone mode on [Container Linux](https://coreos.com/why). You will also deploy an application using a [static pod](https://kubernetes.io/docs/tasks/administer-cluster/static-pod/), test it, then upgrade the application.
@@ -70,7 +71,7 @@ sudo systemctl status kubelet
 
 ## Static Pods
 
-In this section you will deploy an application that responds to HTTP requests with its running config and version. The application configuration will be initialized before the HTTP starts by using an [init container](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/). Once the pod has started the application configuration will be updated every 30 seconds by a configuration sidecar.
+In this section you will deploy an application that responds to HTTP requests with its running config and version. The application configuration will be initialized before the HTTP service starts by using an [init container](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/). Once the pod has started the application configuration will be updated every 30 seconds by a configuration sidecar.
 
 Verify no container are running:
 
