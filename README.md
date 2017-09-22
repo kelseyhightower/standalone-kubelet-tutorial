@@ -140,7 +140,7 @@ curl http://127.0.0.1
 ```
 version: 0.1.0
 hostname: standalone-kubelet.c.hightowerlabs.internal
-key: 1506065336
+key: 1506065606
 ```
 
 Wait about 30 seconds and make another HTTP request:
@@ -152,7 +152,7 @@ curl http://127.0.0.1
 ```
 version: 0.1.0
 hostname: standalone-kubelet.c.hightowerlabs.internal
-key: 1506063629
+key: 1506065636
 ```
 
 > Notice the `key` field has changed.
