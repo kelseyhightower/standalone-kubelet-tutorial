@@ -68,7 +68,7 @@ sudo systemctl status kubelet
 
 ## Static Pods
 
-In this section you will run an example application that responds to HTTP request with its running config and version. This section will leverage the [app pod](https://github.com/kelseyhightower/standalone-kubelet-tutorial/blob/master/pods/app-v0.1.0.yaml) which leverages a configuration side car that updates the `app` configuration file every 30 seconds.
+In this section you will run an example application that responds to HTTP request with its running config and version. This section will leverage the [app pod](https://github.com/kelseyhightower/standalone-kubelet-tutorial/blob/master/pods/app-v0.1.0.yaml) which leverages a configuration sidecar that updates the `app` configuration file every 30 seconds.
 
 Verify no container are running:
 
