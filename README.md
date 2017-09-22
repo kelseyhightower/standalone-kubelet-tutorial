@@ -177,7 +177,7 @@ curl http://${EXTERNAL_IP}
 ```
 version: 0.1.0
 hostname: standalone-kubelet.c.hightowerlabs.internal
-key: 1506064129
+key: 1506065696
 ```
 
 ## Updating Static Pods
