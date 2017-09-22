@@ -62,7 +62,7 @@ sudo systemctl start kubelet
 
 ### Verification
 
-It will take a few minutes for `kubelet` container to download and initialize. Verify the `kubelet` is running:
+It will take a few minutes for the `kubelet` container to download and initialize. Verify the `kubelet` is running:
 
 ```
 sudo systemctl status kubelet
