@@ -40,7 +40,7 @@ wget -q --show-progress --https-only --timestamping \
   https://raw.githubusercontent.com/kelseyhightower/standalone-kubelet-tutorial/master/kubelet.service
 ```
 
-Move the `kubelet.service` unit file to the system configuration directory:
+Move the `kubelet.service` unit file to the systemd configuration directory:
 
 ```
 sudo mv kubelet.service /etc/systemd/system/

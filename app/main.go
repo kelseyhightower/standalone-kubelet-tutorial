@@ -14,34 +14,12 @@ var (
 	configFile string
 )
 
-var version = "0.2.0"
+var version = "0.1.0"
 
 type Config struct {
 	Hostname string `json:"hostname"`
 	Key      int64  `json:"key"`
 }
-
-var indexPage = `<!doctype html>
-<html lang="en">
-<head>
-  <title>Standalone Kubelet</title>
-</head>
-
-<body>
-  <h1>App</h1>
-  <h3>Version</h3>
-  <ul>
-    <li>%s</li>
-  </ul>
-
-  <h3>Config</h3>
-  <ul>
-    <li>Hostname: %s</li>
-    <li>Key: %d</li>
-  </ul>
-</body>
-</html>
-`
 
 func main() {
 	flag.StringVar(&addr, "addr", "0.0.0.0:80", "HTTP listen address.")
@@ -56,9 +34,10 @@ func main() {
 			return
 		}
 
-		fmt.Fprintf(w, indexPage, version, config.Hostname, config.Key)
+		fmt.Fprintf(w, "version: %s\nhostname: %s\nkey: %s\n", version, config.Hostname, config.Key)
 	})
 
+	log.Println("Starting the HTTP service...")
 	http.ListenAndServe(addr, nil)
 }
 

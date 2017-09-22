@@ -1,5 +1,5 @@
 steps:
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/${PROJECT_ID}/app:0.2.0", "."]
+    args: ["build", "-t", "gcr.io/${PROJECT_ID}/app:0.1.0", "."]
 
-images: ["gcr.io/${PROJECT_ID}/app:0.2.0"]
+images: ["gcr.io/${PROJECT_ID}/app:0.1.0"]
