@@ -73,7 +73,7 @@ sudo systemctl status kubelet
 
 In this section you will deploy an application that responds to HTTP requests with its running config and version. The application configuration will be initialized before the HTTP service starts by using an [init container](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/). Once the pod has started the application configuration will be updated every 30 seconds by a configuration sidecar.
 
-SSH into the standalone-kubelet compute instance:
+SSH into the `standalone-kubelet` compute instance:
 
 ```
 gcloud compute ssh standalone-kubelet
