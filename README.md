@@ -78,7 +78,7 @@ SSH into the `standalone-kubelet` compute instance:
 gcloud compute ssh standalone-kubelet
 ```
 
-Verify no container are running:
+Verify no containers are running:
 
 ```
 sudo docker ps
