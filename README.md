@@ -1,6 +1,6 @@
 # Standalone Kubelet Tutorial
 
-This tutorial will guide you through running the Kubernetes Kubelet in standalone mode. You will also deploy an application using a static pod, test it, then upgrade the application.
+This tutorial will guide you through running the Kubernetes Kubelet in standalone mode using [Container Linux](https://coreos.com/why). You will also deploy an application using a [static pod](https://kubernetes.io/docs/tasks/administer-cluster/static-pod/), test it, then upgrade the application.
 
 ## Compute Instance
 
