@@ -129,6 +129,8 @@ List the running containers:
 docker ps
 ```
 
+> You should see three containers running which represent the `app` pod. Docker does not understand pods so the containers are listed as individual containers following the Kubernetes naming convention. 
+
 At this point the `app` pod is up and running on port 80 in the host namespace.
 
 ```
@@ -138,7 +140,7 @@ curl http://127.0.0.1
 ```
 version: 0.1.0
 hostname: standalone-kubelet.c.hightowerlabs.internal
-key: 1506063549
+key: 1506065336
 ```
 
 Wait about 30 seconds and make another HTTP request:
