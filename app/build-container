@@ -1,0 +1,5 @@
+#!/bin/bash
+
+GOOS=linux go build -o app .
+gcloud container builds submit --config cloudbuild.yaml .
+rm app
