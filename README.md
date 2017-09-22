@@ -178,7 +178,7 @@ gcr.io/hightowerlabs/configurator      0.1.0               164e54187008        2
 gcr.io/google_containers/pause-amd64   3.0                 99e59f495ffa        16 months ago       746.9 kB
 ```
 
->> Notice the `gcr.io/hightowerlabs/app:0.2.0` images has been added to the local repository.
+> Notice the `gcr.io/hightowerlabs/app:0.2.0` image has been added to the local repository.
 
 At this point `app` version `0.2.0` is up and running.
 
