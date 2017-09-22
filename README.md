@@ -4,50 +4,40 @@ This tutorial will guide you through running the Kubernetes Kubelet in standalon
 
 ## Compute Instance
 
-Create the `kubelet` compute instance:
+Create the `standalone-kubelet` compute instance:
 
 ```
-gcloud compute instances create kubelet \
+gcloud compute instances create standalone-kubelet \
   --async \
   --boot-disk-size 200 \
   --can-ip-forward \
   --image-family coreos-stable \
   --image-project coreos-cloud \
-  --machine-type n1-standard-2
+  --machine-type n1-standard-1 \
+  --tags standalone-kubelet
+```
+
+All HTTP traffic to the `standalone-kubelet` instance:
+
+```
+gcloud compute firewall-rules create allow-standalone-kubelet \
+  --allow tcp:80 \
+  --target-tags standalone-kubelet
 ```
 
 ## Install a Standalone Kubelet
 
-SSH into the `kubelet` compute instance:
+SSH into the `standalone-kubelet` compute instance:
 
 ```
-gcloud compute ssh kubelet
+gcloud compute ssh standalone-kubelet
 ```
 
-Create the Kubelet systemd unit file:
+Download the Kubelet systemd unit file:
 
 ```
-cat > kubelet.service <<EOF
-[Service]
-Environment=KUBELET_IMAGE_TAG=v1.7.6_coreos.0
-Environment="RKT_RUN_ARGS=--uuid-file-save=/var/run/kubelet-pod.uuid \
-  --volume=resolv,kind=host,source=/etc/resolv.conf \
-  --mount volume=resolv,target=/etc/resolv.conf"
-ExecStartPre=-/usr/bin/rkt rm --uuid-file=/var/run/kubelet-pod.uuid
-ExecStart=/usr/lib/coreos/kubelet-wrapper \
-  --allow-privileged \
-  --file-check-frequency 30s \
-  --max-pods 10 \
-  --minimum-image-ttl-duration 300s \
-  --pod-manifest-path=/etc/kubernetes/manifests \
-  --sync-frequency 30s
-ExecStop=-/usr/bin/rkt stop --uuid-file=/var/run/kubelet-pod.uuid
-Restart=always
-RestartSec=10s
-
-[Install]
-WantedBy=multi-user.target
-EOF
+wget -q --show-progress --https-only --timestamping \
+  https://raw.githubusercontent.com/kelseyhightower/standalone-kubelet-tutorial/master/kubelet.service
 ```
 
 Move the `kubelet.service` unit file to the system configuration directory:
@@ -140,18 +130,18 @@ curl http://127.0.0.1
 ### Testing Remote Access
 
 ```
-KUBELET_EXTERNAL_IP=$(gcloud compute instances describe kubelet \
+EXTERNAL_IP=$(gcloud compute instances describe standalone-kubelet \
   --format 'value(networkInterfaces[0].accessConfigs[0].natIP)')
 ```
 
 ```
-curl http://${KUBELET_EXTERNAL_IP}
+curl http://${EXTERNAL_IP}
 ```
 
 ## Updating Static Pods
 
 ```
-gcloud compute ssh kubelet
+gcloud compute ssh standalone-kubelet
 ```
 
 Download the `app-v0.2.0.yaml` pod manifest:
@@ -168,3 +158,13 @@ sudo mv app-v0.2.0.yaml /etc/kubernetes/manifests/app.yaml
 ```
 
 > Notice the `app-v0.2.0.yaml` is being renamed to `app.yaml`. This overwrites the current pod manifest and will force the kubelet upgrade the app pod.
+
+## Cleanup
+
+```
+gcloud -q compute instances delete standalone-kubelet
+```
+
+```
+gcloud -q compute firewall-rules delete allow-standalone-kubelet
+```
