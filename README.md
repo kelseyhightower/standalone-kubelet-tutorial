@@ -145,7 +145,7 @@ hostname: standalone-kubelet.c.hightowerlabs.internal
 key: 1506065606
 ```
 
-Wait about 30 seconds and make another HTTP request:
+Wait about 30 seconds and make another HTTP request to the `app` pod:
 
 ```
 curl http://127.0.0.1
@@ -157,7 +157,7 @@ hostname: standalone-kubelet.c.hightowerlabs.internal
 key: 1506065636
 ```
 
-> Notice the `key` field has changed.
+> Notice the `key` field has changed. This configuration setting is being updated by the `configurator` sidecar container running in the `app` pod.
 
 ### Testing Remote Access
 
